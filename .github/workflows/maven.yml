@@ -28,6 +28,12 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
+    - name: Run Agent
+      run: |
+        envsubst < .github/ci/docker-compose.yml > docker-compose.yml
+        cat docker-compose.yml
+        docker-compose -f docker-compose.yml up -d
+
     - name: Run Test
       if: always()
       run: mvn package
