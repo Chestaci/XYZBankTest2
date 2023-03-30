@@ -31,6 +31,14 @@ public class CustomerSearchTest{
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
+        options.addArguments("disable-infobars"); // disabling infobars
+        options.addArguments("--disable-extensions"); // disabling extensions
+        options.addArguments("--disable-gpu"); // applicable to windows os only
+        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
+
+
         //создание экземпляра драйвера
         driver = new ChromeDriver(options);
         //окно разворачивается на полный экран
