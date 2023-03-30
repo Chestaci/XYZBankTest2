@@ -28,11 +28,10 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: Run Agent
+    - name: Install Google Chrome
       run: |
-        envsubst < .github/ci/docker-compose.yml > docker-compose.yml
-        cat docker-compose.yml
-        docker-compose -f docker-compose.yml up -d
+        chmod +x ./scripts/InstallChrome.sh
+                    ./scripts/InstallChrome.sh
 
     - name: Run Test
       if: always()
